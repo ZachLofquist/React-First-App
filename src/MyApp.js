@@ -3,13 +3,13 @@ import Table from './Table'
 import Form from './Form'
 
 function MyApp() { 
-    
     const [characters, set_characters] = useState([]);
 
     
     return (
         <div className="container">
-            <Table character_data = {characters} removeCaharaceter = {removeOneCharacter} />
+            <Table character_data = {characters} removeCharacter = {removeOneCharacter} />
+            <Form handleSubmit={updateList} />
         </div>
     )
 
@@ -20,6 +20,11 @@ function MyApp() {
         });
         set_characters(updated)
     }
+
+    function updateList(person) {
+        set_characters([...characters, person]);
+    }
+    
 
 }   
 
